@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Time to Hack | Triangles and Arrow Heads</title>
+	<style type="text/css">
+		.link{
+			background: #222;
+			background: -moz-linear-gradient(#252525, #0A0A0A) ;
+			background: -o-linear-gradient(#252525, #0A0A0A);
+			background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#252525), to(#0A0A0A));
+			background: -webkit-linear-gradient(#252525, #0A0A0A);
+			-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+			-moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+			box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+			color:#fff;
+			padding: 8px 10px;
+			text-decoration: none;
+			font-weight: normal;
+			font-size: 18px;
+			font-family: Arial,Verdana;
+			word-spacing: 1px;
+			border-radius: 4px;
+			-webkit-border-radius: 4px;
+			-moz-border-radius: 4px;
+			-o-border-radius: 4px;
+			-ms-border-radius: 4px;
+		}
+		.link:hover{
+			background:#62ABD8 !important;
+			background: -moz-linear-gradient(#80BADE, #62ABD8) ;
+			background: -o-linear-gradient(#80BADE, #62ABD8);
+			background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));
+			background: -webkit-linear-gradient(#80BADE, #62ABD8);
+			-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+			-moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+			box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+		}
+		.link:active{
+			background:#62ABD8 !important;
+			background: -moz-linear-gradient(#80BADE, #62ABD8) ;
+			background: -o-linear-gradient(#80BADE, #62ABD8);
+			background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));
+			background: -webkit-linear-gradient(#80BADE, #62ABD8);
+			-webkit-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+			-moz-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+			box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+		}
+		.demo1{
+			margin: 0 auto;
+			border:20px solid transparent;
+			border-top-color: red;
+			border-right-color: blue;
+			border-bottom-color: green;
+			border-left-color: black;
+			display: inline-block;
+			width: 0px;
+			height: 0px;
+			margin:0 0 20px;
+		}
+		.demo2{
+			margin: 0 auto;
+			border:20px solid transparent;
+			border-top: 0;
+			border-right-color: transparent;
+			border-bottom-color: green;
+			border-left-color: transparent;
+			display: inline-block;
+			width: 0px;
+			height: 0px;
+		}
+		.demo2{
+			margin: 0 auto;
+			border:20px solid transparent;
+			border-top: 0;
+			border-right-color: transparent;
+			border-bottom-color: green;
+			border-left-color: transparent;
+			display: inline-block;
+			width: 0px;
+			height: 0px;
+		}
+		.inlineBlock{
+			display: inline-block;
+			border: 1px solid #eee;
+			margin: 5px;
+			padding: 5px;
+		}
+		.arrow{
+			margin: 0 auto;
+			display: inline-block;
+			width: 0px;
+			height: 0px;
+			border:20px solid transparent;
+		}
+		.arrow.arrow-up{
+			border-bottom-color: #ccc;
+			border-top-width: 0px;
+		}
+		.arrow.arrow-down{
+			border-top-color: #ccc;
+			border-bottom-width: 0px;
+		}
+		.arrow.arrow-left{
+			border-right-color: #ccc;
+			border-left-width: 0px;
+		}
+		.arrow.arrow-right{
+			border-left-color: #ccc;
+			border-right-width: 0px;
+		}
+		.profile{
+			display: inline-block;
+			padding: 10px;
+			border:1px solid #ccc;
+			border-radius: 2px;
+			margin-top: 15px;
+			position: relative;
+		}
+		.profile .name{
+			margin: 0px;
+			display: block;
+			padding-bottom: 5px;
+			margin-bottom: 3px;
+			border-bottom: 1px dotted #ccc;
+		}
+		.profile::before{
+			content: '';
+			display: block;
+			width: 0;
+			height: 0;
+			border: 10px solid transparent;
+			border-bottom-color: #ccc ;
+			border-top: 0px;
+			position: absolute;
+			top: -10px;
+		}
+	</style>
+</head>
+<body>
+<div style="width:100%;text-align:center;margin:0 auto;">
+	<div><center><h1>Time to Hack</h1>
+		<h3><a href=" http://time2hack.com/2014/09/triangles-and-arrow-heads-css.html" class="link">Back to Tutorial</a></h3></center>
+	</div>
+	<hr>
+	<br>
+</div>
+<div class="demo1"></div>
+<div class="demo2"></div>
+<br/>
+	<div>
+		<div class="inlineBlock">
+			<div class="arrow arrow-down"></div>
+			<p>Arrow Pointing Down</p>
+		</div>
+		<div class="inlineBlock">
+			<div class="arrow arrow-left"></div>
+			<p>Arrow Pointing Left</p>
+		</div>
+		<div class="inlineBlock">
+			<div class="arrow arrow-right"></div>
+			<p>Arrow Pointing Right</p>
+		</div>
+		<div class="inlineBlock">
+			<div class="arrow arrow-up"></div>
+			<p>Arrow Pointing Up</p>
+		</div>
+	</div>
+
+	<div>
+		
+		<div class="profile">
+			<p class="name">Pankaj Patel</p>
+			<small><a href="http://github.com/pankajpatel">http://github.com/pankajpatel</a></small>
+		</div>
+	</div>
+<br/>
+
+<iframe src="http://time2hack.com/ads.php" width="100%" frameborder="0" style="max-width: 740px;"></iframe>
+</body>
+</html>

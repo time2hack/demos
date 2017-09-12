@@ -1,0 +1,100 @@
+<html>
+<head>
+	<title></title>
+<style type="text/css">
+	label {
+		width:180px;
+		display: inline-block;
+		font: 16px 'Open Sans','Georgia',Arial;
+
+	}
+
+	.fieldset{
+
+		border: 1px solid #555;
+		border-radius: 4px;
+		width:450px;
+		margin: 0 auto;
+	}
+	.fieldset legend {
+		font: 18px 'Open Sans','Georgia',Arial;
+		text-shadow:0px 1px 0px #999;
+		color: #133783;
+		padding: 5px 10px;
+		border:1px solid #555;
+		border-radius: 2px;
+		box-shadow: inset 0px 0px 2px 2px #eee;
+	}
+	.buttons{
+		padding:4px 8px;
+		font: 16px 'Open Sans', Verdana;
+		font-weight: bold;
+		border:1px solid #ccc;
+		border-radius: 3px;
+		text-shadow: 0px 1px 0px #fff;
+		text-decoration: none	!important;
+		color: black	!important;
+		cursor: pointer;
+		background: white;
+		background: -webkit-linear-gradient(top, #aaa, #ccc);
+		background: -moz-linear-gradient(top, #aaa, #ccc);
+		background: -o-linear-gradient(top, #aaa, #ccc);
+
+	}
+
+	.buttons:hover{
+		background: -webkit-linear-gradient(top, #ccc, #aaa);
+		background: -moz-linear-gradient(top, #ccc, #aaa);
+		background: -o-linear-gradient(top, #ccc, #aaa);
+	}
+
+	.buttons:focus{
+		background: -webkit-linear-gradient(top, #ccc, #aaa);
+		background: -moz-linear-gradient(top, #ccc, #aaa);
+		background: -o-linear-gradient(top, #ccc, #aaa);
+
+	}
+
+	.buttons:active{
+		color: white !important;
+		background: -webkit-linear-gradient(top, #999, #777);
+		background: -moz-linear-gradient(top, #999, #777);
+		background: -o-linear-gradient(top, #999, #777);
+		text-shadow: 0px 1px 0px #888;
+	}
+	.red{
+		color: red !important;
+	}
+
+	.textfield{
+		width:200px;
+		padding:7px;
+		margin:5px;
+		border:1px solid #bbb;
+		border-radius: 3px;
+	}
+	.textfield:focus, .textfield:active{
+		border:1px solid #777;
+		outline: none;
+		box-shadow: 0px 0px 5px #aaa;
+		border-radius: 3px;
+	}
+
+</style>
+</head>
+<body>
+	<fieldset class="fieldset">
+	<legend>Add User</legend>
+		<form name="add_user" method="POST" action="http://social.pankaj.pro/register.php" >
+			<label>User Name</label><input type="text" class="textfield" name="username" value="" placeholder="User Name" /><br/>
+			<label>Full Name</label><input type="text" class="textfield" name="full_name" value="" placeholder="Full Name of User" /><br/>
+			<label>Mobile No.</label><input type="text" class="textfield" name="mobile" value="" placeholder="User's Mobile Number" /><br/>
+			<label>Sex</label><input type="radio" name="sex" value="M">&nbsp;M&nbsp;&nbsp;<input type="radio" name="sex" value="F">&nbsp;F&nbsp;&nbsp;<br/>
+			<label>Password</label><input type="password" class="textfield" name="password" value="" placeholder="Enter Password" /><br/>
+			<label>Confirm Password</label><input type="password" class="textfield" name="confirm" value="" placeholder="Re-Enter Password" /><br/>
+			<label></label><input type="checkbox" name="accept" value="y" /> I accept the Terms and Conditions<br/>
+			<label></label><input class="buttons" type="submit" name="submit" value="Register" />
+		</form>
+</fieldset>
+</body>
+</html>

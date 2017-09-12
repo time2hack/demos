@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "multiuser-video-chat"
+AuthUserFile "/home/pankah6p/.htpasswds/public_html/demos/multivideo/passwd"
+require valid-user

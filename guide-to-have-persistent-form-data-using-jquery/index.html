@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Data Persistant Forms with jQuery</title>
+	<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="jquery.cookie.js"></script>
+<script type="text/javascript">
+function saveCookie(){
+	$('form').each(function(i){ 
+		x = $(this).attr('name'); 
+		str = $(this).serialize();
+		$.cookie(x, str, {expiers : 2});
+	});
+}
+
+function restoreCookie(){
+	$('form').each(function(i){ 
+		x = $(this).attr('name'); 
+		str = $.cookie(x);
+if( str != null ){
+		data = str.split('&');
+		$(data).each(function(element) {
+			a = this.split('=');
+			$('input[name="'+a[0]+'"]').val(decodeURIComponent(a[1]));
+		});
+}
+	});
+}
+function resetForm(formName){
+	$(formName).reset();
+	$.removeCookie(formName);
+}
+$(document).ready(function(e){
+	restoreCookie();
+	$('a').click(function(e){
+		e.preventDefault();
+		saveCookie();
+		window.location = $(this).attr('href');
+	});
+});
+</script>
+	<style type="text/css">
+	body{
+		margin: 0px;
+		padding: 0px;
+	}
+	label{
+		display: inline-block;
+		width: 100px;
+	}
+	.menu{
+		background-color: #eee;
+		text-align: center;
+	}
+	.menu a{
+		display: inline-block;
+		font-size: 18px;
+		line-height: 30px;
+		padding: 0px 10px;
+		text-decoration: none;
+	}
+	.menu a:hover{
+		background-color: #ccc;
+	}
+	form{
+		width: 300px;
+		margin:0 auto;
+	}
+    body{
+        text-align: center;
+    }
+    .link{
+    background: #222;
+background: -moz-linear-gradient(#252525, #0A0A0A) ;
+background: -o-linear-gradient(#252525, #0A0A0A);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#252525), to(#0A0A0A));
+background: -webkit-linear-gradient(#252525, #0A0A0A);
+-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+color:#fff;
+padding: 8px 10px;
+text-decoration: none;
+font-weight: normal;
+font-size: 18px;
+font-family: Arial,Verdana;
+word-spacing: 1px;
+border-radius: 4px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-o-border-radius: 4px;
+-ms-border-radius: 4px;
+}
+.link:hover{
+background:#62ABD8 !important;
+background: -moz-linear-gradient(#80BADE, #62ABD8) ;
+background: -o-linear-gradient(#80BADE, #62ABD8);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));
+background: -webkit-linear-gradient(#80BADE, #62ABD8);
+-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+}
+.link:active{
+background:#62ABD8 !important;
+background: -moz-linear-gradient(#80BADE, #62ABD8) ;
+background: -o-linear-gradient(#80BADE, #62ABD8);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));
+background: -webkit-linear-gradient(#80BADE, #62ABD8);
+-webkit-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+}
+	</style>
+</head>
+<body>
+<div class="menu"><span><a href="home.html">Home</a></span><span><a href="index.html">Cookie Page</a></span></div>
+
+<center>
+<h1><a href="http://time2hack.com" class="blog_titlez" title="Time to Hack">Time to Hack</a></h1>
+<h3><a href="http://time2hack.com/2013/09/guide-to-have-persistent-form-data-using-jquery" class="link">Back to Tutorial</a></h3></center></div>
+<hr /><br />
+<form name="loginForm" method="post" action="">
+	<label>Email</label>: <input name="email" type="text" value="" /><br>
+	<label>Password</label>: <input name="password" type="password" value="" /><br/>
+	<center><input type="submit" name="login" value="Login"><input type="reset" onclick="resetForm('loginForm')" value="Reset Form"></center>
+</form>
+<hr>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-1830015441649630";
+/* pankaj.pro */
+google_ad_slot = "9009254982";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<form name="registerForm" method="post" action="">
+	<label>Name</label>: <input name="name" type="text" value="" /><br>
+	<label>Email</label>: <input name="email" type="text" value="" /><br>
+	<label>Gender</label>: <input name="gender" type="radio" value="M" /> Male  <input name="gender" type="radio" value="F" /> Female<br>
+	<label>Password</label>: <input name="password" type="password" value="" /><br/>
+	<center><input type="submit" name="register" value="Register"><input type="reset" onclick="resetForm('registerForm')" value="Reset Form"></center>
+</form>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-1830015441649630";
+/* pankaj.pro */
+google_ad_slot = "9009254982";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</body>
+</html>

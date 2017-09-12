@@ -1,0 +1,133 @@
+<html>
+<head>
+	<title>Demo Guide to build custom and simple accordion | Time to Hack</title>
+<style type="text/css">
+.link{
+	background: #222;
+background: -moz-linear-gradient(#252525, #0A0A0A) ;
+background: -o-linear-gradient(#252525, #0A0A0A);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#252525), to(#0A0A0A));
+background: -webkit-linear-gradient(#252525, #0A0A0A);
+-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+color:#fff;
+padding: 8px 10px;
+text-decoration: none;
+font-weight: normal;
+font-size: 18px;
+font-family: Arial,Verdana;
+word-spacing: 1px;
+border-radius: 4px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-o-border-radius: 4px;
+-ms-border-radius: 4px;
+}
+.link:hover{
+background:#62ABD8 !important;
+background: -moz-linear-gradient(#80BADE, #62ABD8) ;
+background: -o-linear-gradient(#80BADE, #62ABD8);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));
+background: -webkit-linear-gradient(#80BADE, #62ABD8);
+-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+}
+.link:active{
+background:#62ABD8 !important;
+background: -moz-linear-gradient(#80BADE, #62ABD8) ;
+background: -o-linear-gradient(#80BADE, #62ABD8);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));
+background: -webkit-linear-gradient(#80BADE, #62ABD8);
+-webkit-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+}
+
+	.container
+	{
+		display:block;
+		width: 500px;
+		height : auto ;
+		margin: 0 auto;
+	}
+
+	.item
+	{
+		display : block;
+		width : inherit ;
+		height : 40px;
+		line-height : 40px;
+		background : #555 ;
+		border: 1px solid #000 ;
+		cursor: pointer;
+		color: #fff;
+	}
+
+	.item-data
+	{
+		display : none ; 
+		width : inherit ;
+		height : auto ;
+		border: 1px solid #ccc;
+	}
+
+	.active {
+		background : #eee ;
+		color : #000 ;
+	}
+	.item-data div{
+		margin: 30px;
+	}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e){
+	$('.item').click(function (e){
+		if($(this).next('.item-data').css('display') != 'block'){
+			$('.active').slideUp('fast').removeClass('active');
+			$(this).next('.item-data').addClass('active').slideDown('slow');
+		} else {
+			$('.active').slideUp('fast').removeClass('active');
+		}
+	});
+});
+</script>
+</head>
+<body>
+<div style="width:100%;text-align:center;margin:0 auto;">
+	<div><center><h1>Time to Hack</h1>
+		<h3><a href="http://time2hack.com/2013/01/jquery-tutorial-guide-to-build-a-custom-and-simple-accordion.html" class="link">Back to Tutorial</a></h3></center>
+	</div>
+	<hr>
+	<br/>
+
+<div class='container'>
+<div class='item'>What is Lorem Ipsum?</div>
+<div class='item-data'><div>
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</div></div>
+
+<div class='item'>Where does it come from?</div>
+<div class='item-data'><div>
+Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+</div></div>
+
+<div class='item'>Why do we use it?</div>
+<div class='item-data' ><div>
+	It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+</div></div>
+
+<div class='item'>Where can I get some?</div>
+<div class='item-data' ><div>
+	There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+</div></div>
+</div>
+
+</div>
+<center><div><iframe src="http://time2hack.com/ads.php" width="100%" frameborder="0" style="max-width: 740px;"></iframe></div></center>
+</body>
+</html>

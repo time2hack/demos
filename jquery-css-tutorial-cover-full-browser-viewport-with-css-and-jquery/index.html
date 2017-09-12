@@ -1,0 +1,93 @@
+<html>
+	<head>
+	<title>Demo Page</title>
+	<style>
+	*{
+		margin : 0px ;
+	} 
+	#header{
+		margin:0 auto;
+		width:960px;
+		height:100px;
+		line-height:100px;
+		font: 30px 'Arial';
+		text-align: center;
+		border: 1px solid #ccc;
+		border-collapse: collapse;
+	} 
+	#menu_bar{
+		margin:0 auto;
+		width:960px;
+		height:40px;
+		text-align: center;
+		border: 1px solid #ccc;
+		border-collapse: collapse;
+	} 
+	#container{
+		margin:0 auto;
+		width:960px;
+		height:auto;
+		min-height:400px;
+		border: 1px solid #ccc;
+		border-collapse: collapse;
+	} 
+
+	#footer{
+		margin:0 auto;
+		width:960px;
+		height:70px;
+		line-height:70px;
+		font: 18px 'Arial';
+		text-align: center;
+		border: 1px solid #ccc;
+		border-collapse: collapse;
+	}
+	</style> 
+
+	<!-- Include jQuery here --> 
+
+	<script type='text/javascript' src='http://code.jquery.com/jquery-1.8.3.min.js' ></script>
+	<script type='text/javascript' >
+	$(document).ready(function (e) {
+		
+		// Code to adjust the minimum height of container element
+		x = $(window).height();
+		h = 100;	// Height of Header Element
+		m = 40;		// Height of Menu Bar
+		c = 400;	// Minimum required Height of Container Element
+		f = 70;		// Height of the Footer Element
+
+		// Calculation
+
+		x = x - ( h + m + f );
+		if(x < c){
+			x = c;
+		} else {
+			x;
+		}
+
+		// Fixtures
+		if($.browser.webkit){ 
+			/*
+				Do Nothing
+				Coz Code already Optimized for Webkit
+			*/
+		} else if($.browser.mozilla){
+			//Fixture According to Mozilla
+			x += 6;
+		}
+
+		// Application
+		console.log(x);
+		$('#container').css('min-height',x);
+	});
+	</script>
+
+	</head>
+	<body>
+	<div id='header'>Time to Hack</div>
+	<div id='menu_bar'></div>
+	<div id='container'></div>
+	<div id='footer'>&copy;Time to Hack</div>
+	</body>
+</html>

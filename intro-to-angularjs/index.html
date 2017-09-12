@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="time2hack">
+<head>
+    <title>Time to Hack - AngularJS</title>
+    <style type="text/css">
+    .done{
+        text-decoration:line-through;
+    }
+    </style>
+</head>
+<body ng-controller="MainController">
+<center>
+<header>
+    <h1>{{title}}</h1>
+    <p>{{subTitle}}</p>
+</header>
+<nav></nav>
+<section>
+    <button type="button" ng-click="showAlert('Hello World!\n-Time to Hack...')">Show Alert</button>
+</section>
+		<aside>
+			<div class="columns clearfix">
+				<div style="width:33%;display:inline-block;">
+					<iframe src="http://time2hack.com/ads.php" border=0 width="90%" align="center"></iframe>
+				</div>
+				<div  style="width:33%;display:inline-block;">
+					<iframe src="http://time2hack.com/ads.php" border=0 width="90%" align="center"></iframe>
+				</div>
+				<div  style="width:33%;display:inline-block;">
+					<iframe src="http://time2hack.com/ads.php" border=0 width="90%" align="center"></iframe>
+				</div>
+			</div>
+			<iframe src="http://time2hack.com/ads.php" border=0 width="100%" align="center"></iframe>
+		</aside>
+
+<footer>
+    
+</footer>
+</center>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

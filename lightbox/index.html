@@ -1,0 +1,97 @@
+<html>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e){
+	$('.iframe').click(function(e) {
+		e.preventDefault();
+		//alert(this);
+		console.log('clicked for got()');
+		got(this);
+
+	});
+
+	$('#iframe_modal').click(function(e){
+		e.preventDefault();
+		$('#iframe_area').html('');
+		$('#iframe_modal').css('display', 'none');
+		$('#iframe_area').css('display', 'none');
+	});
+	$('#iframe_area').click(function(e){
+		e.preventDefault();
+		return false;
+	});
+});
+
+	function got(target){
+		console.log('called got()');
+		evt = window.event;
+			evt.stopPropagation();
+			evt.preventDefault();
+			//$(evt).stopPropagation();
+
+			$('#iframe_area').html('Loading');
+		$('#iframe_modal').css('display', 'block');
+		$('#iframe_area').css('display', 'block');
+		//href = $(caller).attr('href');
+		$.get(target, function(data){
+			if(data.length > 0){
+				content = true;
+				contents = data;
+				$('#iframe_area').html(contents);
+			} else {
+				content = false;
+				contents = 'The Content can not be loaded';
+				$('#iframe_area').html(contents);
+			}
+		});
+		//alert(contents+ ' hello');
+		return false;
+
+	}
+</script>
+<style type="text/css">
+body{
+	background: #ccc;
+}
+#iframe_modal{
+	position: fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	display:none;
+	z-index: 10;
+	background: rgba(255, 255, 255, 0.4);
+
+}
+#iframe_area{
+	color:black;
+	width: 60%;
+	height:400px;
+	margin:50px auto;
+	overflow: auto;
+	z-index: 15;
+	border:1px solid gray;
+	border-radius: 5px;
+	padding: 10px;
+	display: none;
+	background: #fff;
+	box-shadow: 0px 0px 8px #fff;
+}
+
+</style>
+</head>
+<body>
+<!--<h1>Networking. Sharing. Technology!</h1>-->
+<a href="http://demos.pankaj.pro/CSS-CSS3-Tutorial-Animating-the-Web-Page-Experience/index.html" class="iframe">Google</a>
+
+
+
+
+<a href="http://demos.pankaj.pro/jquery-css-tutorial-cover-full-browser-viewport-with-css-and-jquery/index.html" class="iframe">Facebook</a>
+<div id="iframe_modal"><div id="iframe_area">
+</div></div>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<html>
+<head>
+	<title>CSS3 Shadows Demo on Time to Hack</title>
+
+<style type="text/css">
+.link{
+	background: #222;
+background: -moz-linear-gradient(#252525, #0A0A0A) ;
+background: -o-linear-gradient(#252525, #0A0A0A);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#252525), to(#0A0A0A));
+background: -webkit-linear-gradient(#252525, #0A0A0A);
+-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+color:#fff;
+padding: 8px 10px;
+text-decoration: none;
+font-weight: normal;
+font-size: 18px;
+font-family: Arial,Verdana;
+word-spacing: 1px;
+border-radius: 4px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-o-border-radius: 4px;
+-ms-border-radius: 4px;
+}
+.link:hover{
+background:#62ABD8 !important;
+background: -moz-linear-gradient(#80BADE, #62ABD8) ;
+background: -o-linear-gradient(#80BADE, #62ABD8);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));
+background: -webkit-linear-gradient(#80BADE, #62ABD8);
+-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+}
+.link:active{
+background:#62ABD8 !important;
+background: -moz-linear-gradient(#80BADE, #62ABD8) ;
+background: -o-linear-gradient(#80BADE, #62ABD8);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));
+background: -webkit-linear-gradient(#80BADE, #62ABD8);
+-webkit-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+}
+</style>
+<style type="text/css">
+
+#text_shadow {
+ padding : 10px; font-size : 35px; text-shadow : 2px 2px 2px #ccc; -webkit-text-shadow : 2px 2px 2px #ccc; -moz-text-shadow : 2px 2px 2px #ccc; -o-text-shadow : 2px 2px 2px #ccc; -ms-text-shadow : 2px 2px 2px #ccc; } 
+#stuffed {
+	
+padding : 10px;
+font-size : 35px;
+text-shadow : 0px 1px 0px #ccc;
+-webkit-text-shadow : 0px 1px 0px #ccc; 
+-moz-text-shadow : 0px 1px 0px #ccc; 
+-o-text-shadow: 0px 1px 0px #ccc; 
+-ms-text-shadow : 0px 1px 0px #ccc; 
+} 
+.box-one{margin: 0 auto; display : block ; width : 400px ; height : 200px ; line-height : 200px ; font-size : 40px; font-family : Arial, Helvetica, Verdana, Georgia; border : 1px solid #aaa; box-shadow : 0px 0px 4px #ccc ; } 
+.fixed-box{margin: 0 auto; display : block ; width : 400px ; height : 200px ; line-height : 200px ; font-size : 40px; font-family : Arial, Helvetica, Verdana, Georgia; border : 1px solid #aaa; box-shadow :2px 2px 4px 4px #ccc inset ; }
+
+
+</style>
+</head>
+<body>
+	<div style="width:100%;text-align:center;margin:0 auto;">
+	<div><center><h1>Time to Hack</h1>
+		<h3><a href="http://time2hack.blogspot.com/2012/11/CSS-CSS3-Tutorial-Get-a-3D-effect-with-shadows.html" class="link">Back to Tutorial</a></h3></center>
+	</div>
+	<hr>
+	<br/>
+<div id='text_shadow'>Time to Hack</div>
+<br/>
+<div id='stuffed'>Time to Hack</div> 
+<br/>
+<div class='box-one' >Time to Hack</div> 
+<br/>
+<div class='fixed-box' >Time to Hack</div> 
+
+<br/>
+
+</div>
+</body>
+</html>

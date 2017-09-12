@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <title>jQuery Animation</title>
+    </head>
+    <style>
+    body{
+        text-align: center;
+    }
+    .link{
+    background: #222;
+background: -moz-linear-gradient(#252525, #0A0A0A) ;
+background: -o-linear-gradient(#252525, #0A0A0A);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#252525), to(#0A0A0A));
+background: -webkit-linear-gradient(#252525, #0A0A0A);
+-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+color:#fff;
+padding: 8px 10px;
+text-decoration: none;
+font-weight: normal;
+font-size: 18px;
+font-family: Arial,Verdana;
+word-spacing: 1px;
+border-radius: 4px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-o-border-radius: 4px;
+-ms-border-radius: 4px;
+}
+.link:hover{
+background:#62ABD8 !important;
+background: -moz-linear-gradient(#80BADE, #62ABD8) ;
+background: -o-linear-gradient(#80BADE, #62ABD8);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));
+background: -webkit-linear-gradient(#80BADE, #62ABD8);
+-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+}
+.link:active{
+background:#62ABD8 !important;
+background: -moz-linear-gradient(#80BADE, #62ABD8) ;
+background: -o-linear-gradient(#80BADE, #62ABD8);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));
+background: -webkit-linear-gradient(#80BADE, #62ABD8);
+-webkit-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+}
+    #target {
+        display : inline-block;
+        width : 100px ;
+        height : 100px ;
+        background : #ccc;
+        border : 1px solid #aaa ;
+        margin: 0 auto;
+        text-align: center;
+    }
+    #button{
+        width: 150px;
+        position: absolute;
+
+    }
+    </style>
+    <script type='text/javascript' src='http://code.jquery.com/jquery.min.js'></script>
+    <script type='text/javascript' >
+        $(document).ready(function(){
+            $('#target').click(function(){
+                $(this).animate({height: "200px", width : "200px"}, "slow", function(){
+                    $(this).animate({height: "100px", width: "100px"}, "slow");
+                });
+            });
+
+            $('#button').hover(function(){
+                $(this).animate({top: "+=50px", right : "+=50px"}, "fast");
+            });
+        });
+    </script>
+    <body>
+
+        <div style="width:100%;text-align:center;margin:0 auto;">
+    <div><center><h1>Time to Hack</h1>
+        <h3><a href="http://time2hack.com/2013/01/jquery-make-web-pages-more-interactive-by-animation-and-make-web-pages-animated.html" class="link">Back to Tutorial</a></h3></center>
+    </div>
+    <hr>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-1830015441649630";
+/* pankaj.pro */
+google_ad_slot = "9009254982";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script><br/>
+    <button id="button">Catch Me { If you can }</button>
+        <br/>
+        <span id='target' >Click Me</span>
+</script>
+    </body>
+</html>

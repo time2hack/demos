@@ -1,0 +1,215 @@
+<html>
+<head>
+	<title>AJAX demo on Time to Hack</title>
+	<style type="text/css">
+.icon_place{
+	display : inline-block ; 
+	width : auto ; 
+	height : auto ; 
+	padding : 3px ;
+	background-color : #eee ; 
+	border-radius : 2px ; 
+	border : 1px solid #aaa ; 
+	margin:5px;
+}
+
+.icon_place:hover{
+	background-color: #ddd;
+	border: 1px solid #555;
+	box-shadow: 0px 0px 5px #ccc;
+}
+
+.icon_place:hover .icon{
+	background-color: #ddd;
+}
+.icon{
+	display : inline-block ; 
+	width : 30px ; 
+	height : 30px ; 
+	background-color : #eee;
+}
+
+.icon:hover{
+	background-color: #ddd;
+}
+
+.facebook{
+	background-image:url('sprite_icon.png') ; 
+	background-repeat : no-repeat ; 
+	background-position : 0px 0px;
+} 
+
+.twitter{
+	background-image:url('sprite_icon.png') ; 
+	background-repeat : no-repeat ; 
+	background-position : -30px 0px;
+}
+</style>
+<style type="text/css">
+.link{
+	background: #222;
+background: -moz-linear-gradient(#252525, #0A0A0A) ;
+background: -o-linear-gradient(#252525, #0A0A0A);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#252525), to(#0A0A0A));
+background: -webkit-linear-gradient(#252525, #0A0A0A);
+-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+color:#fff;
+padding: 8px 10px;
+text-decoration: none;
+font-weight: normal;
+font-size: 18px;
+font-family: Arial,Verdana;
+word-spacing: 1px;
+border-radius: 4px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-o-border-radius: 4px;
+-ms-border-radius: 4px;
+}
+.link:hover{
+background:#62ABD8 !important;
+background: -moz-linear-gradient(#80BADE, #62ABD8) ;
+background: -o-linear-gradient(#80BADE, #62ABD8);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));
+background: -webkit-linear-gradient(#80BADE, #62ABD8);
+-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+}
+.link:active{
+background:#62ABD8 !important;
+background: -moz-linear-gradient(#80BADE, #62ABD8) ;
+background: -o-linear-gradient(#80BADE, #62ABD8);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));
+background: -webkit-linear-gradient(#80BADE, #62ABD8);
+-webkit-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+}
+</style>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript">
+	function basic_ajax(){
+		var xhr; if (window.XMLHttpRequest){ 
+			// code for IE7+, Firefox, Chrome, Opera, Safari 
+			xhr = new XMLHttpRequest(); 
+		} else { 
+			// code for IE6, IE5 
+			xhr = new ActiveXObject("Microsoft.XMLHTTP"); 
+		} 
+		xhr.open("GET","getdata.php?name=Pankaj",true); 
+		xhr.send(); 
+		xhr.onreadystatechange = function(){ 
+			if ( xhr.readyState==4 && xhr.status==200 )
+				{
+					document.getElementById("target").innerHTML=xhr.responseText; 
+				} 
+			}
+
+		}
+
+		function jquery_ajax_get() {
+			$.ajax({ 
+				url: "getdata.php?name=Pankaj", 
+				type: "GET", 
+				dataType: "html", 
+				success: function(data) { 
+					$("#target").html(data); 
+				} 
+			}); 
+		}
+
+		function jquery_ajax_post(){
+			$.ajax({ 
+				url: "getdata.php", 
+				type: "POST", 
+				data: {name : "Pankaj"}, 
+				dataType: "html", 
+				success: function(data) { $("#target").html(data); } 
+			}); 
+		}
+		
+		function jquery_get() {
+			$.get("getdata.php?name=Pankaj", function(data) {
+			  $("#target").html(data);
+			});
+		}
+
+		function jquery_post() {
+			$.post("getdata.php", {"name" : "Pankaj"}, function(data) { 
+				$("#target").html(data); 
+			});
+		}
+
+		function jquery_getJSON() {
+			$.getJSON( "getdata.json", function(data) { 
+				$("#target").html(data.name + " " + data.website + " " +data.blog); 
+			});
+		}
+
+		function jquery_getScript() {
+			$("button").click(function(){
+			    $.getScript("getscript.js"); 
+			});
+		}
+
+		$(document).ready(function(){
+			$("#button").click(function(){
+			    $("#target").load("getdata.php", { "name":"Pankaj"} ); 
+			});
+		});
+	</script>
+</head>
+<body>
+	<div style="width:100%;text-align:center;margin:0 auto;">
+	<div><center><h1>Time to Hack</h1>
+		<h3><a href="http://time2hack.blogspot.com/2012/11/jQuery-Making-the-AJAX-coding-clutter-free.html" class="link">Back to Tutorial</a></h3></center>
+	</div>
+	<hr>
+	<br/>
+
+<div>Demo for Simple AJAX
+<button type="button" onclick="basic_ajax()">Click Me</button>
+</div>
+<br/><div>Demo for AJAX with jQuery of GET request
+<button type="button" onclick="jquery_ajax_get()">Click Me</button>
+</div>
+<br/>
+
+<div>Demo for AJAX with jQuery of POST request
+<button type="button" onclick="jquery_ajax_post()">Click Me</button>
+</div>
+<br/>
+
+<div>Demo for AJAX $.get();
+<button type="button" onclick="jquery_get()">Click Me</button>
+</div>
+<br/>
+
+<div>Demo for AJAX $.post();
+<button type="button" onclick="jquery_post()">Click Me</button>
+</div>
+<br/>
+
+<div>Demo for AJAX $.getJSON();
+<button type="button" onclick="jquery_getJSON()">Click Me</button>
+</div>
+<br/>
+
+<div>Demo for AJAX $.getScript();
+<button type="button" onclick="jquery_getScript()">Click Me</button>
+</div>
+<br/>
+
+<div>Demo for AJAX $(...).load();
+<button type="button" id="button">Click Me</button>
+</div>
+<br/>
+<div id="target"></div>
+<br/>
+
+</div>
+</body>
+</html>

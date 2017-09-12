@@ -1,0 +1,240 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <title>My Parse App</title>
+  <meta name="description" content="My Parse App">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+  <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+  <script src="script.js"></script>
+  <style media="screen">
+    body {
+      background: #eee;
+      text-align: center;
+      padding: 0 25px;
+    }
+
+    #main {
+      width: 500px;
+      margin: auto;
+      text-align: left;
+      background: white;
+      padding: 50px 60px;
+      border: solid #ddd;
+      border-width: 0 1px 1px 1px;
+    }
+
+    #main h1 {
+      margin-top: 0;
+      font-size: 35px;
+    }
+
+    #main ul {
+      padding-left: 20px;
+    }
+
+    #main .error {
+      border: 1px solid red;
+      background: #FDEFF0;
+      padding: 20px;
+    }
+
+    #main .success {
+      margin-top: 25px;
+    }
+
+    #main .success code {
+      font-size: 12px;
+      color: green;
+      line-height: 13px;
+    }
+
+    .input-container{
+
+    }
+    #task{
+      width: 100%;
+      padding: 15px;
+      font-size: 1.4em;
+      border-radius: 3px;
+      border: 1px solid #aaa;
+      box-sizing: border-box;
+    }
+    .button-container{
+      margin: 30px;
+    }
+    #saveTask{
+      width: 100%;
+      padding: 10px;
+      background: transparent;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    #saveTask:hover,
+    #saveTask:focus{
+      background-color: #eee;
+      outline: none;
+    }
+    #saveTask:active{
+      background-color: #555;
+      color:#fff;
+      border: 1px solid #555;
+      outline: none;
+    }
+    ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    li{
+      padding-left: 15px;
+      position: relative;
+    }
+    li.strikethrough{
+      text-decoration: line-through;
+    }
+    li .change-task-status{
+      position: absolute;
+      left: 0;
+      margin-top: 4px;
+      margin-left: -10px;
+    }
+    .pull-right{
+      float: right;
+    }
+    .pull-left{
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <div id="main">
+    <a class="pull-right" href="http://time2hack.com/2015/10/intro-to-parse-in-web-apps-with-javascript.html">Tutorial</a>
+    <h1>ToDo</h1>
+    <br/>
+    <section>
+      <div class="input-container">
+        <input type="text" name="task" id="task" placeholder="Todo Task"/>
+      </div>
+      <div class="button-container">
+        <button type="button" name="saveTask" id="saveTask">Save Task</button>
+      </div>
+    </section>
+    <section>
+      <ul id="taskList">
+      </ul>
+    </section>
+    <hr/>
+    <section>
+      <h2>
+        Completed Tasks
+      </h2>
+      <ul id="completedTaskList">
+      </ul>
+    </section>
+    <div style="display:none" class="error">
+      <p>Looks like there was a problem saving the task</p>
+    </div>
+
+    <div style="display:none" class="success">
+      <p>Saved</p>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    //Parse.initialize("APPLICATION_ID", "JAVASCRIPT_KEY");
+    Parse.initialize("O6JDrBUIjnYZsyOTrgSVO0eOCjpDHFWPmaDmbBY0", "nulxQy9Tp4m6yQyug1XhwESQsMJrycLZIsuJDS3R");
+
+    var ToDoObject = Parse.Object.extend("ToDo");
+
+    var query = new Parse.Query(ToDoObject);
+
+    //Fetch all saved tasks in beginning
+    query.equalTo( 'idh', userh )
+    query.find({
+      success: function(results) {
+        console.log("Successfully retrieved " + results.length + " scores.", results);
+        // Do something with the returned Parse.Object values
+        for (var i = 0; i < results.length; i++) {
+          //alert(object.id + ' - ' + object.get('playerName'));
+          addTaskToList( results[i] )
+        }
+      },
+      error: function(error) {
+        console.error("Error: " + error.code + " " + error.message);
+      }
+    });
+    //save task on the button click
+    $(document).on('click', '.change-task-status', function (e) {
+      var $checkBox = $(this);
+      var taskId = $(this).parent().attr('id');
+      var q = new Parse.Query( ToDoObject );
+      q.get( taskId, {
+        success: function (object) {
+          var isChecked = $checkBox.is(':checked');
+          object.set('completed', isChecked )
+          object.save();
+          $checkBox.parent().remove();
+          addTaskToList( object )
+        },
+        error: function (error) {
+          console.error("Error: " + error.code + " " + error.message);
+        }
+      } )
+    });
+
+    //save task on the button click
+    $('#saveTask').on('click', function (e) {
+        var obj = {text: $('#task').val(), timeStamp: new Date(), completed: false, idh: userh };
+        console.log( obj );
+        var todo = new ToDoObject();
+        todo.save(obj, {
+          success: function(object) {
+            $(".success").show(function(){
+              $('#task').val('');
+              setTimeout(function () {
+                $('.success').hide();
+              }, 2000);
+            });
+
+            addTaskToList( object );
+            console.log( object );
+          },
+          error: function(model, error) {
+            $(".error").show(function(){
+              setTimeout(function () {
+                $('.success').hide();
+              }, 2000);
+            });
+          }
+        });
+    })
+
+    //function to prepare the HTML for individual task from the task object received from parse
+    function prepareTask( taskObjFromParse ) {
+      var object = taskObjFromParse;
+      var strikeClass = object.get('completed') == true ? 'strikethrough' : '';
+      var completed = object.get('completed') == true ? 'checked' : '';
+      return '<li class="task '+ strikeClass +'" id="'+object.id+'" title="Added on '+object.get('timeStamp')+'">\
+      <input type="checkbox" class="change-task-status" '+ completed +' />\
+       '+object.get('text')+'\
+      </li>';
+    }
+
+    //function to append the html of task to the task list element
+    function addTaskToList( taskObjFromParse ) {
+      if( taskObjFromParse.get('completed') ){
+        $('#completedTaskList').append( prepareTask( taskObjFromParse ) );
+      } else {
+        $('#taskList').append( prepareTask( taskObjFromParse ) );
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>

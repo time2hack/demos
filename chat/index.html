@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Always Heal</title>
+
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<link href="css/openSans.css" rel="stylesheet">
+
+		<link href="css/style.css" rel="stylesheet">
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/peer.min.js"></script>
+		<script src="js/script.js"></script>
+		
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+</head>
+<body>
+	<div class="container">
+		<!-- Steps -->
+		<div class="">
+			<h2>Video Chat</h2>
+			<!-- Get local audio/video stream -->
+			<div id="step1">
+				<p>Please click `allow` on the top of the screen so we can access your webcam and microphone for calls.</p>
+				<div id="step1-error">
+					<p>Failed to access the webcam and microphone. Make sure to run this demo on an http server and click allow when asked for permission by the browser.</p>
+					<a href="#" class="btn btn-danger" id="step1-retry">Try again</a>
+				</div>
+			</div>
+
+			<!-- Make calls to others -->
+			<div id="step2">
+				<p>Your id: <span id="my-id">...</span> Share this id with others so they can call you.</p>
+				<p class="lead">Make a call</p>
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Call user id..." id="callto-id">
+					<span class="input-group-btn">
+						<button class="btn btn-success" id="make-call">Call</button>
+					</span>
+				</div>
+			</div>
+
+			<!-- Call in progress -->
+			<div id="step3">
+				<p>Currently in call with <span id="their-id">...</span></p>
+				<p><a href="#" class="btn btn-danger" id="end-call">End call</a></p>
+			</div>
+		</div>
+		<div class="row">
+			<!-- Video area -->
+			<div class="col-md-8" id="video-container">
+				<video id="their-video" autoplay></video>
+			</div>
+			<div class="col-md-4">
+				<video id="my-video" muted="true" autoplay></video>
+			</div>			
+		</div>
+
+	</div>
+
+</body>
+</html>

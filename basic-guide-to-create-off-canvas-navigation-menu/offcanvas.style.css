@@ -1,0 +1,155 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Source Sans Pro', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px; 
+ }
+.animated{
+    transition: all ease-out 0.4s;
+}
+.clearfix{
+    display: block;
+    clear: both;
+}
+.clearfix:before,
+.clearfix:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.page-container{
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    min-height: 100%;
+}
+
+.button{
+    text-decoration: none;
+    display: block;
+    border: 1px solid #cecece;
+    background: #fff;
+    color: #555;
+    margin: 20px 10px;
+    font-size: 18px;
+    border-radius: 3px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    position: relative;    
+}
+.button:active{
+  background: #eee;
+  color: #000;
+}
+.pull-left{
+  float: left; 
+}
+.pull-right{
+  float: right;
+}
+.menu{
+    position: absolute;
+    display: block;
+    height: 100%;
+    top: 0;
+    /*
+      Mind this width;
+      It needs to be same as in push of .page
+    */
+    width: 300px;
+    background: #F0EDBB;
+    color: #FF3800;
+    z-index: 100;
+}
+/*Toggle Button's Position wrt Menu Position*/
+.page-container.left #toggle{
+    float: right;
+}
+.page-container.right #toggle{
+    float: left;
+}
+
+/* 
+  % for left and right of menu are skipped 
+  because of the delays in animation 
+*/
+
+/*Menu From Left*/
+.page-container.left > .menu{
+    left: -300px;
+}
+.page-container.open.left > .menu{
+    left: 0;    
+}
+
+/*Menu From Right*/
+.page-container.right > .menu{
+    right: -300px;
+}
+.page-container.open.right > .menu{
+    right: 0;    
+}
+
+/*Menu From Left with Push*/
+.page-container.left.push > .page{
+    left: 0;
+}
+.page-container.open.left.push > .page{
+    left: 300px;    
+}
+
+/*Menu From Right with Push*/
+.page-container.right.push > .page{
+    right: 0;
+}
+.page-container.open.right.push > .page{
+    right: 300px;    
+}
+
+.menu > ul{
+    padding:15px 0px;
+    margin: 0;
+    list-style: none;
+    display: block;
+}
+
+.menu > ul > li > a{
+    padding: 12px 10px;
+    display: block;
+    text-decoration: none;
+    color: black;   
+}
+.menu > ul > li > a.active{
+  background-color: #00585E;
+  color: #FF3800;
+}
+.menu > ul > li > a:hover{
+    background-color: #F0EDBB;
+    padding-left: 15px;
+    color:#FF3800;
+}
+
+.page{
+    padding: 0 15px;
+    position: relative;
+    background: #00585E;
+    color: #fff;
+}
+h1{
+  margin: 0;
+  padding: 25px 0;
+}
+h1 a,
+h2 a{
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px dotted;
+}
+.left .menu-toggle{
+  margin: 33px 10px 0;
+}
+.right .menu-toggle{
+  margin: 33px 10px 0 0;
+}

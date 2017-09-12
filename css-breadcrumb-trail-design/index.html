@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Time to Hack | CSS Breadcrumb Trail Design</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<style type="text/css">
+		body{
+			font-family: 'Open Sans';
+		}
+		h3,
+		h4{
+			margin-bottom: 5px;
+		}
+		h4{
+			margin-top: 5px;
+		}
+		.container{
+			margin: 0 auto;
+			max-width: 740px;
+		}
+		.container > div{
+			margin: 20px;
+		}
+		.breadcrumb{
+			display: block;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		.breadcrumb.inline{
+			display: inline-block;
+		}
+		.breadcrumb > li,
+		.breadcrumb > div{
+			display: inline-block;
+			list-style: none;
+			margin-right: -15px;
+		}
+
+		.breadcrumb .step,
+		.breadcrumb > li > div{
+			display: inline-block;
+			background-color: #999;
+			margin: 2px;
+			padding: 0 8px 0 8px;
+			margin-right: 15px;
+			margin-left: 15px;
+			color: #fff;
+			position: relative;
+			height: 30px;
+			line-height: 30px;
+		}
+		.breadcrumb.clear-initial-trail > li:first-child > div,
+		.breadcrumb.clear-initial-trail > div:first-child .step{
+			margin-left: 0;
+			padding-left: 10px;
+			border-top-left-radius: 2px;
+			border-bottom-left-radius: 2px;
+		}
+		.breadcrumb.clear-initial-trail > li:first-child > div::before,
+		.breadcrumb.clear-initial-trail > div:first-child .step::before{
+			display: none;
+		}
+		.breadcrumb .step::after,
+		.breadcrumb > li > div::after{
+			display: block;
+			position: absolute;
+			top:0;
+			left: 100%;
+			content: '';
+			border: 15px solid transparent;
+			border-left-width: 15px;
+			border-right-width: 0px;
+			z-index: 10;
+			border-left-color: #999;
+		}
+		.breadcrumb .step::before,
+		.breadcrumb > li > div::before{
+			display: block;
+			position: absolute;
+			top:0;
+			right: 100%;
+			content: '';
+			background-color: #999;
+			border: 15px solid transparent;
+			border-left-width: 15px;
+			border-right-width: 0px;
+			border-left-color: #fff;
+		}
+
+		.slice{
+			display: inline-block;
+			margin-left: -15px;
+		}
+		.slice.first,
+		.slice:first-child{
+			margin-left: 0px;
+		}
+		.slice .head{
+			display: inline-block;
+			border: 15px solid transparent;
+			border-left-width: 15px;
+			border-right-width: 0px;
+			z-index: 10;
+			position: relative;
+			border-left-color: #999;
+			vertical-align: top;
+			float: left;
+		}
+		.slice .body{
+			display: inline-block;
+			background-color: #999;
+			padding: 0 8px 0 8px;
+			color: #fff;
+			position: relative;
+			height: 30px;
+			line-height: 30px;
+			vertical-align: top;
+			float: left;
+		}
+		.slice .tail{
+			display: inline-block;
+			background-color: #999;
+			border: 15px solid transparent;
+			border-left-width: 15px;
+			border-right-width: 0px;
+			border-left-color: #fff;
+			vertical-align: top;
+			float: left;			
+		}
+		.link{
+			background: #222;
+			background: -moz-linear-gradient(#252525, #0A0A0A) ;
+			background: -o-linear-gradient(#252525, #0A0A0A);
+			background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#252525), to(#0A0A0A));
+			background: -webkit-linear-gradient(#252525, #0A0A0A);
+			-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+			-moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+			box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+			color:#fff;
+			padding: 8px 10px;
+			text-decoration: none;
+			font-weight: normal;
+			font-size: 18px;
+			font-family: Arial,Verdana;
+			word-spacing: 1px;
+			border-radius: 4px;
+			-webkit-border-radius: 4px;
+			-moz-border-radius: 4px;
+			-o-border-radius: 4px;
+			-ms-border-radius: 4px;
+		}
+		.link:hover{
+			background:#62ABD8 !important;
+			background: -moz-linear-gradient(#80BADE, #62ABD8) ;
+			background: -o-linear-gradient(#80BADE, #62ABD8);
+			background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));
+			background: -webkit-linear-gradient(#80BADE, #62ABD8);
+			-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+			-moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+			box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+		}
+		.link:active{
+			background:#62ABD8 !important;
+			background: -moz-linear-gradient(#80BADE, #62ABD8) ;
+			background: -o-linear-gradient(#80BADE, #62ABD8);
+			background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));
+			background: -webkit-linear-gradient(#80BADE, #62ABD8);
+			-webkit-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+			-moz-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+			box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+		}
+	</style>
+</head>
+<body>
+	<div style="width:100%;text-align:center;margin:0 auto;">
+		<div><center><h1>Time to Hack</h1>
+			<h3><a href=" http://time2hack.com/2014/10/css-breadcrumb-trail-design.html" class="link">Back to Tutorial</a></h3></center>
+		</div>
+		<hr>
+		<br>
+	</div>
+	<div class="container">
+		<div>
+			<h3>With div-structure</h3>
+			<h4>Breadcrumb without clearing initial Tail </h4>
+			<div class="breadcrumb">
+				<div><div class="step">Step 1</div></div>
+				<div><div class="step">Step 2</div></div>
+				<div><div class="step">Step 3</div></div>
+			</div>
+			<h4>Breadcrumb with clearing initial Tail </h4>
+			<div class="breadcrumb clear-initial-trail">
+				<div><div class="step">Step 1</div></div>
+				<div><div class="step">Step 2</div></div>
+				<div><div class="step">Step 3</div></div>
+			</div>		
+		</div>
+		<div>
+			<h3>With ul-li structure</h3>
+			<h4>Breadcrumb with clearing initial Tail </h4>
+			<ul class="breadcrumb clear-initial-trail">
+				<li><div>Step 1</div></li>
+				<li><div>Step 2</div></li>
+				<li><div>Step 3</div></li>
+			</ul>
+			<h4>Breadcrumb without clearing initial Tail </h4>
+			<ul class="breadcrumb">
+				<li><div>Step 1</div></li>
+				<li><div>Step 2</div></li>
+				<li><div>Step 3</div></li>
+			</ul>		
+		</div>
+
+		<hr/>
+		<div>
+			<div class="slice">
+				<div class="tail"></div>
+				<div class="body">Slice</div>
+				<div class="head"></div>
+			</div>
+			<div class="slice">
+				<div class="tail"></div>
+				<div class="body">Slice</div>
+				<div class="head"></div>
+			</div>
+			<div class="slice">
+				<div class="tail"></div>
+				<div class="body">Slice</div>
+				<div class="head"></div>
+			</div>
+		</div>
+		<iframe src="http://time2hack.com/ads.php" width="100%" frameborder="0" style="max-width: 740px;"></iframe>
+	</div>
+</body>
+</html>

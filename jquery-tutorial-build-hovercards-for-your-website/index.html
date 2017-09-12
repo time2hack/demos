@@ -1,0 +1,172 @@
+<html>
+<head>
+	<title></title>
+<style type="text/css">
+.link{
+background: #222;
+background: -moz-linear-gradient(#252525, #0A0A0A) ;
+background: -o-linear-gradient(#252525, #0A0A0A);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#252525), to(#0A0A0A));
+background: -webkit-linear-gradient(#252525, #0A0A0A);
+-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+color:#fff;
+padding: 8px 10px;
+text-decoration: none;
+font-weight: normal;
+font-size: 18px;
+font-family: Arial,Verdana;
+word-spacing: 1px;
+border-radius: 4px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-o-border-radius: 4px;
+-ms-border-radius: 4px;
+}
+.link:hover{
+background:#62ABD8 !important;
+background: -moz-linear-gradient(#80BADE, #62ABD8) ;
+background: -o-linear-gradient(#80BADE, #62ABD8);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));
+background: -webkit-linear-gradient(#80BADE, #62ABD8);
+-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+}
+.link:active{
+background:#62ABD8 !important;
+background: -moz-linear-gradient(#80BADE, #62ABD8) ;
+background: -o-linear-gradient(#80BADE, #62ABD8);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));
+background: -webkit-linear-gradient(#80BADE, #62ABD8);
+-webkit-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+}
+</style>
+<style type='text/css'>
+.links{
+	color: #555;
+	padding: 5px;
+	cursor: pointer;
+}
+.hovercard {
+	display: none;
+	position: absolute;
+	width:300px;
+padding:3px;
+	height: 150px;
+	border:1px solid #aaa;
+	border-radius: 3px;
+	background-color: #fff;
+	-webkit-box-shadow:  rgba(0, 0, 0, 0.4) 0px 3px 4px;
+-moz-box-shadow:  rgba(0, 0, 0, 0.4) 0px 3px 4px;
+box-shadow:  rgba(0, 0, 0, 0.4) 0px 3px 4px;
+}
+.hovercard:before {
+   content: "";
+   position: absolute;
+   bottom: 100%;
+   left: 20px;
+   border-bottom: 20px solid black;
+   border-bottom-color: inherit; 
+   border-left: 20px solid transparent;
+   border-right: 20px solid transparent; 
+}
+.hovercard h3{
+	font-family: Verdana, Georgia;
+	border-bottom: 1px dashed #ccc;
+}
+.hovercard a{
+	text-decoration: none;
+	cursor: pointer;
+	border-bottom: 1px dashed #eee;
+}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+<script type='text/javascript'>
+$(document).ready(function (e) {
+	$('span[rel="hovercard"]').hover(
+		function(e){
+			position = $(this).position();
+			x = $(this).data('url');
+			$.getJSON('hover_data.json', function (data) {
+				$('.hovercard').html('<h3>'+eval('data.'+x+'.full_name')+'</h3>Place : '+eval('data.'+x+'.place')+'<br/><a href="'+eval('data.'+x+'.facebook')+'">'+eval('data.'+x+'.facebook')+'</a>')
+			})
+			$('.hovercard').show().css('top', position.bottom).css('left', position.left);
+			//Mouse In code
+		},
+		function(e){
+			$('.hovercard').hide();
+			//Mouse Out code
+			$('hovercard').html('');
+		});
+});
+</script>
+
+</head>
+<body>
+
+<div style="width:100%;text-align:center;margin:0 auto;">
+	<div><center><h1>Time to Hack</h1>
+		<h3><a href="http://time2hack.com/2013/03/jquery-tutorial-build-hovercards-for-your-website.html" class="link">Back to Tutorial</a></h3></center>
+	</div>
+	<hr>
+	<br/>
+<div>Hover These Texts</div><br>
+<span rel='hovercard' data-url='page_100000001' class="links">
+Time to Hack
+</span>|<span rel='hovercard' data-url='user_100000000' class="links">
+Pankaj Patel
+</span>
+</div>
+<br>
+<div class="hovercard"></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div id="pankaj"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-1830015441649630";
+/* pankaj.pro */
+google_ad_slot = "9009254982";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script></div>
+
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+<style type="text/css">
+#pankaj{
+	display: block;
+	width:728;
+	height:90;
+	line-height: 50px;
+	font-weight: 25px;
+	text-align: center;
+	margin: 0 auto;
+	border:1px solid #ccc;
+	margin-top: 10px;
+	-webkit-transition: 2000ms;
+}
+#pankaj:hover{
+	transform: rotateY(180deg);
+-webkit-transform: rotateY(180deg);
+-webkit-transition: 2000ms;
+-moz-transform: rotateY(180deg);
+-moz-transition: 2000ms;
+-ms-transform: rotateY(180deg);
+-ms-transition: 2000ms;
+-o-transform: rotateY(180deg);
+-o-transition: 2000ms;
+
+}
+</style>
+
+</body>
+</html>

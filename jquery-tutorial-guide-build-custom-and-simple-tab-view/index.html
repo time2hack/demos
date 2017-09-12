@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Demo Guide to build custom and simple accordion | Time to Hack</title>
+<style type="text/css">
+.link{
+	background: #222;
+background: -moz-linear-gradient(#252525, #0A0A0A) ;
+background: -o-linear-gradient(#252525, #0A0A0A);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#252525), to(#0A0A0A));
+background: -webkit-linear-gradient(#252525, #0A0A0A);
+-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+color:#fff;
+padding: 8px 10px;
+text-decoration: none;
+font-weight: normal;
+font-size: 18px;
+font-family: Arial,Verdana;
+word-spacing: 1px;
+border-radius: 4px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-o-border-radius: 4px;
+-ms-border-radius: 4px;
+}
+.link:hover{
+background:#62ABD8 !important;
+background: -moz-linear-gradient(#80BADE, #62ABD8) ;
+background: -o-linear-gradient(#80BADE, #62ABD8);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));
+background: -webkit-linear-gradient(#80BADE, #62ABD8);
+-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+}
+.link:active{
+background:#62ABD8 !important;
+background: -moz-linear-gradient(#80BADE, #62ABD8) ;
+background: -o-linear-gradient(#80BADE, #62ABD8);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));
+background: -webkit-linear-gradient(#80BADE, #62ABD8);
+-webkit-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+}
+]
+	.tab-container{
+		border-bottom: 1px solid #aaa;
+	}
+	.tab-container ul{
+		list-style: none;
+		border-bottom: 1px solid #aaa;
+		margin-bottom: 0;
+	}
+	.tab-container ul li{
+		display: inline-block;
+		text-align: center;
+		padding: 6px 8px;
+		cursor: pointer;
+		border:1px solid #aaa;
+		border-radius: 2px;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;
+		border-bottom: 0px solid transparent;
+		background-color: #eee;
+		transition: all 0.5s;
+		-webkit-transition: all 0.5s;
+		-moz-transition: all 0.5s;
+		-ms-transition: all 0.5s;
+		-o-transition: all 0.5s;
+	}
+	.tab-container ul li.active{
+		top: 1px;
+		position: relative;
+		color: #999;
+		z-index: 2;
+		background-color: #fff;
+		transition: all 0.5s;
+		-webkit-transition: all 0.5s;
+		-moz-transition: all 0.5s;
+		-ms-transition: all 0.5s;
+		-o-transition: all 0.5s;
+	}
+
+	.tab-data{
+		display: none;
+		padding: 10px 0;
+		transition: height 0.5s;
+		-webkit-transition: height 0.5s;
+		-moz-transition: height 0.5s;
+		-ms-transition: height 0.5s;
+		-o-transition: height 0.5s;
+	}
+	.tab-container.fixed-height .tab-data{
+		height: 150px;
+		overflow-y: auto;
+	}
+
+	.tab-container.fixed-width{
+		width: 450px;
+		margin: 0 auto;
+	}
+	.tab-data.active{
+		display: block;
+		transition: height 0.5s;
+		-webkit-transition: height 0.5s;
+		-moz-transition: height 0.5s;
+		-ms-transition: height 0.5s;
+		-o-transition: height 0.5s;
+	}
+
+	</style>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(event) {
+			$('.tab-container li').on('click', function(event){
+				event.preventDefault();
+				$parent = $(this).parent().parent();
+				$parent.find('.tab-data').removeClass('active')
+					$parent.find(''+
+						$(this).siblings().removeClass('active').parent()
+						.find(this).addClass('active').data('href')
+					).addClass('active');
+			});
+		})
+	</script>
+</head>
+<body>
+<div style="width:100%;text-align:center;margin:0 auto;">
+	<div><center><h1>Time to Hack</h1>
+		<h3><a href="http://time2hack.com/2014/05/jquery-tutorial-guide-build-custom-and-simple-tab-view.html" class="link">Back to Tutorial</a></h3></center>
+	</div>
+	<hr>
+	<br/>
+</div>
+<div class="tab-container">
+	<ul>
+		<li data-href="#html" class="active">HTML</li>
+		<li data-href="#css">CSS</li>
+		<li data-href="#javascript">Javascript</li>
+		<li data-href="#jquery">jQuery</li>
+	</ul>
+	<div>
+		<div class="tab-data active" id="html">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+		<div class="tab-data" id="css">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+		<div class="tab-data" id="javascript">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+		<div class="tab-data" id="jquery">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+	</div>
+</div>
+<br/><br/>
+<div class="tab-container fixed-height fixed-width">
+	<ul>
+		<li data-href="#php" class="active">PHP</li>
+		<li data-href="#jsp">JSP</li>
+		<li data-href="#asp">ASP</li>
+		<li data-href="#python">Python</li>
+	</ul>
+	<div>
+		<div class="tab-data active" id="php">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+		<div class="tab-data" id="jsp">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			quis nostrud exercitation ullamco</p>
+			
+			<p>laboris nisi ut aliquip ex ea commodo
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+		<div class="tab-data" id="asp">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+
+			<p>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+		<div class="tab-data" id="python">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+
+			<p>cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+	</div>
+</div>
+<center><div><iframe src="http://time2hack.com/ads.php" width="100%" frameborder="0" style="max-width: 740px;"></iframe></div></center></body>
+</html>

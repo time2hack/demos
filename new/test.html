@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>Time to Hack</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1"> 
+ <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+ <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+ <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+</head>
+<body>
+    <div data-role="page">
+
+	<div data-role="header" data-theme="B" style="height:120px; line-height:40px;">
+		<h1 style="font-size:30px;">Time to Hack</h1>
+          <h3>Place to find best Hacks and Tweaks... </h3>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+        <h3>Create Profile</h3>
+        <form name='' method='POST' action=''>
+            <p><label for="fname">Full Name</label><input type='text' id="fname" name='fname' value=''/></p>
+            <p><label for="email">Email</label><input type='text' id="email" name='email' value=''/></p>
+            <p>
+				Gender
+				<fieldset data-role="controlgroup" data-type="horizontal" >
+					<input type='radio' id="radio_male" name='gender' value='M'/><label for="radio_male">Male</label>
+					<input type='radio' id="radio_female" name='gender' value='F'/><label for="radio_female">Female</label>
+				</fieldset>
+			</p>
+            <p><label for="birthday">Birthday</label><input type='date' name='birthday' id='birthday' value=''/></p> 
+            <p><label for="pass">Password</label><input type='password' name='pass' id="pass" value=''/></p> 
+            <p><label for="re_pass">Retype Password</label><input type='password' name='re_pass' id="re_pass" value=''/></p> 
+            <p><input type='submit' name='submit' value='Register' data-theme="A"/><input type='reset' value='Reset' data-theme="C"/></p> 
+        </form> 
+	</div><!-- /content -->
+
+     <div data-role="footer" style="height:40px; line-height:40px;">
+		<center>Copyright &copy; 2012 Time to Hack</center>
+	</div><!-- /footer --> 
+
+</div><!-- /page -->
+</body>
+</html>

@@ -1,0 +1,99 @@
+<html>
+<head>
+	<title>Data Attributes demo on Time to Hack</title>
+<style type="text/css">
+.link{
+	background: #222;
+background: -moz-linear-gradient(#252525, #0A0A0A) ;
+background: -o-linear-gradient(#252525, #0A0A0A);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#252525), to(#0A0A0A));
+background: -webkit-linear-gradient(#252525, #0A0A0A);
+-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+color:#fff;
+padding: 8px 10px;
+text-decoration: none;
+font-weight: normal;
+font-size: 18px;
+font-family: Arial,Verdana;
+word-spacing: 1px;
+border-radius: 4px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-o-border-radius: 4px;
+-ms-border-radius: 4px;
+}
+.link:hover{
+background:#62ABD8 !important;
+background: -moz-linear-gradient(#80BADE, #62ABD8) ;
+background: -o-linear-gradient(#80BADE, #62ABD8);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));
+background: -webkit-linear-gradient(#80BADE, #62ABD8);
+-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+}
+.link:active{
+background:#62ABD8 !important;
+background: -moz-linear-gradient(#80BADE, #62ABD8) ;
+background: -o-linear-gradient(#80BADE, #62ABD8);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));
+background: -webkit-linear-gradient(#80BADE, #62ABD8);
+-webkit-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+-moz-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
+}
+</style>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#button1').click(function(){
+				x = $('#info').data('info'); 
+				$('#target').html(x);
+				alert(x);
+			});
+			$('#button2').click(function(){
+				x = $('#info2').data('info')+' '+ $('#info3').data('info'); 
+				$('#target').html(x);
+				alert(x);
+			});
+			$('#button3').click(function(){
+				x = $('#info4').data('info')+' '+ $('#info4').data('infom'); 
+				$('#target').html(x);
+				alert(x);
+			});
+		});
+	</script>
+</head>
+<body>
+	<div style="width:100%;text-align:center;margin:0 auto;">
+	<div><center><h1>Time to Hack</h1>
+		<h3><a href="http://time2hack.blogspot.com/2012/11/jquery-store-access-relative-info-within-HTML-element.html" class="link">Back to Tutorial</a></h3></center>
+	</div>
+	<hr>
+	<br/>
+
+<div><span id="info" data-info="Hello">This Span has info "Hello"</span><br/><button type="button" id="button1">Click Me</button></div>
+<br/><br/>
+<div>
+	<span id="info2" data-info="Time to">This Span has info "Time to"</span>
+	<span id="info3" data-info="Hack">This Span has info "Hack"</span>
+	<br/>
+<button type="button" id="button2">Click Me</button>
+</div>
+<br/><br/>
+<div>
+	<span id="info4" data-info="Welcome to" data-infom="Time to Hack">This Span has two info "Welcome to" and "Time to Hack"</span>
+	<br/>
+<button type="button" id="button3">Click Me</button>
+</div>
+<br/>
+<br/>
+
+<div id="target"></div>
+<br/>
+
+</div>
+</body>
+</html>

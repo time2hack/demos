@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ReactJS Demo for Time to Hack - http://time2hack.com/2016/03/intro-to-reactjs.html and http://time2hack.com/2016/03/todo-app-with-reactjs.html">
+    <meta name="author" content="Pankaj Patel">
+
+    <title>CommentBox - ReactJS Demo</title>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+    <style type="text/css">
+		body {
+		  padding-top: 20px;
+		  padding-bottom: 20px;
+		}
+
+		.header,
+		.footer {
+		  padding-right: 15px;
+		  padding-left: 15px;
+		}
+
+		.header {
+		  padding-bottom: 20px;
+		  border-bottom: 1px solid #e5e5e5;
+		}
+		.header h3 {
+		  margin-top: 0;
+		  margin-bottom: 0;
+		  line-height: 40px;
+		}
+		.footer {
+		  padding-top: 19px;
+		  color: #777;
+		  border-top: 1px solid #e5e5e5;
+		}
+		#app{
+			margin: 30px;
+		}
+
+		@media (min-width: 768px) {
+		  .container {
+		    max-width: 730px;
+		  }
+		}
+    </style>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="http://time2hack.com/2016/03/intro-to-reactjs.html">Tutorial</a></li>
+            <li role="presentation" class="active"><a href="http://time2hack.com/2016/03/todo-app-with-reactjs.html">Tutorial: ToDo</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">ReactToDo</h3>
+      </div>
+      <div id="container">
+
+        <div class="row">
+          <div class="col-lg-12">
+      		<div id="app"></div>
+              
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <p>&copy; Time to Hack</p>
+      </footer>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script type="text/babel">
+    	var CommentBox = React.createClass({ 
+		  getInitialState: function(){
+		    return { name: this.props.name };
+		  },
+		  handleKeyUp: function() {
+		    this.setState( {name: this.refs.name.value } );
+		  },
+		  render: function(){
+		    console.log( this.refs, this.state, this.props );
+		    return (
+		        <div>
+		          Hello {this.state.name}!
+		          <hr/>
+		          <p>
+		            <input type="text" 
+		              ref="name" 
+		              onKeyUp={this.handleKeyUp} 
+		              placeholder="Your Name" />
+		          </p>
+		        </div>
+		      );
+		  }
+		});
+		ReactDOM.render(
+		    <CommentBox name='World' />, 
+		    document.getElementById('app') 
+		  );
+    </script>
+    
+
+  </body>
+</html>
