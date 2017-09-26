@@ -1,0 +1,38 @@
+.menu {
+  list-style: none;
+  display : flex;
+  flex-wrap: wrap;
+  flex-flow: row;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu li{
+  padding: 5px 10px;
+}
+
+section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* flex-flow: row; */
+  /* flex: 320px; */
+}
+article {
+  flex: 1 320px;
+  padding: 0 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 10px;
+  transition: all ease 0.2s;
+}
+article:hover {
+  box-shadow: 0 0 8px 0px rgba(100, 100, 100, .2);
+}
+
+article:nth-of-type(3) {
+  display: flex;
+  flex-flow: column;
+}
