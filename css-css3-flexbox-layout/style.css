@@ -17,8 +17,6 @@ section {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  /* flex-flow: row; */
-  /* flex: 320px; */
 }
 article {
   flex: 1 320px;
@@ -30,9 +28,4 @@ article {
 }
 article:hover {
   box-shadow: 0 0 8px 0px rgba(100, 100, 100, .2);
-}
-
-article:nth-of-type(3) {
-  display: flex;
-  flex-flow: column;
 }
