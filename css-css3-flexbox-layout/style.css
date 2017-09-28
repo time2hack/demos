@@ -1,22 +1,47 @@
+body {
+  margin: 0;
+}
+.bordered {
+  border: 1px solid #ccc;
+}
+header.bordered {
+  border-bottom: 0;
+}
+header.bordered .menu.bordered {
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
 .menu {
   list-style: none;
+  margin: 0;
+  padding: 0;
+  
   display : flex;
   flex-wrap: wrap;
   flex-flow: row;
-  margin: 0;
-  padding: 0;
-  align-items: center;
+  
   justify-content: space-between;
 }
 
 .menu li{
-  padding: 5px 10px;
+  padding: 10px;
 }
-
+.content,
 section {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+aside {
+  flex: 1;
+}
+aside.bordered {
+  border-left: 0;
+}
+section {
+  flex: 3;
 }
 article {
   flex: 1 320px;
