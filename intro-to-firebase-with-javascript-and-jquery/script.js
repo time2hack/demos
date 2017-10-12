@@ -1,32 +1,43 @@
-//create firebase reference
-var dbRef = new Firebase("https://contactb.firebaseio.com/");
-var contactsRef = dbRef.child('contacts')
+// file: script.js
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyCfolxrOcBrgxVXKiBmdRbwakCNsw-kHbQ",
+  authDomain: "tempone-7869c.firebaseapp.com",
+  databaseURL: "https://tempone-7869c.firebaseio.com",
+  projectId: "tempone-7869c",
+  storageBucket: "tempone-7869c.appspot.com",
+  messagingSenderId: "557485542616"
+};
+firebase.initializeApp(config);
+
+//create firebase database reference
+var dbRef = firebase.database();
+var contactsRef = dbRef.ref('contacts');
 
 //load older conatcts as well as any newly added one...
 contactsRef.on("child_added", function(snap) {
   console.log("added", snap.key(), snap.val());
-  document.querySelector('#contacts').innerHTML += (contactHtmlFromObject(snap.val()));
+  $('#contacts').append(contactHtmlFromObject(snap.val()));
 });
 
 //save contact
-document.querySelector('.addValue').addEventListener("click", function( event ) {  
-  event.preventDefault();
-  if( document.querySelector('#name').value != '' || document.querySelector('#email').value != '' ){
-    contactsRef
-      .push({
-        name: document.querySelector('#name').value,
-        email: document.querySelector('#email').value,
+$('.addValue').on("click", function( event ) {  
+    event.preventDefault();
+    if( $('#name').val() != '' || $('#email').val() != '' ){
+      contactsRef.push({
+        name: $('#name').val(),
+        email: $('#email').val(),
         location: {
-          city: document.querySelector('#city').value,
-          state: document.querySelector('#state').value,
-          zip: document.querySelector('#zip').value
+          city: $('#city').val(),
+          state: $('#state').val(),
+          zip: $('#zip').val()
         }
       })
       contactForm.reset();
-  } else {
-    alert('Please fill atlease name or email!');
-  }
-}, false);
+    } else {
+      alert('Please fill atlease name or email!');
+    }
+  });
 
 //prepare conatct object's HTML
 function contactHtmlFromObject(contact){
