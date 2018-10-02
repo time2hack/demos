@@ -25,12 +25,12 @@ $('.addValue').on("click", function( event ) {
     event.preventDefault();
     if( $('#name').val() != '' || $('#email').val() != '' ){
       contactsRef.push({
-        name: $('#name').val(),
-        email: $('#email').val(),
+        name: $('#name').val().replace(/<[^>]*>/ig, ""),
+        email: $('#email').val().replace(/<[^>]*>/ig, ""),
         location: {
-          city: $('#city').val(),
-          state: $('#state').val(),
-          zip: $('#zip').val()
+          city: $('#city').val().replace(/<[^>]*>/ig, ""),
+          state: $('#state').val().replace(/<[^>]*>/ig, ""),
+          zip: $('#zip').val().replace(/<[^>]*>/ig, "")
         }
       })
       contactForm.reset();
